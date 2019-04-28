@@ -29,6 +29,11 @@ void Arena()
 
   while (running == "true")
   {
+    if(Pone.PDeath == 1)
+    {
+      running = "false";
+    }
+
     cout << "1) Fight. 2) Store. 3) Inventory. 4) Exit." << endl;
 
     cin >> Opt1;

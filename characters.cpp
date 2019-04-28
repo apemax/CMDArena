@@ -34,8 +34,6 @@ void player::HealthDown(int b)
 
 int player::GetHealth()
 {
-  //cout << Health << endl;
-
   return Pone.Health;
 }
 
@@ -60,10 +58,6 @@ void player::Defence(int state)
 
       Eone.AttackS = Eone.AttackS - Pone.DefenceS;
 
-      cout << "Pone.AttackS:" << Eone.AttackS << endl;
-
-      cout << "AttackTemp:" << Eone.AttackTemp << endl;
-
       break;
     }
 
@@ -73,18 +67,14 @@ void player::Defence(int state)
 
       Eone.AttackS = Eone.AttackTemp;
 
-      cout << "AttackTemp:" << Eone.AttackTemp << endl;
-
       break;
     }
   }
-
-  cout << "Pone Defence" << endl;
 }
 
 void player::Inventory()
 {
-  cout << "Health: " << Health << " Attack: " << AttackS << endl;
+  cout << "Health: " << Health << " Attack: " << AttackS << "Defence: " << DefenceS << endl;
 }
 
 void enemy::HealthUp(int a)
@@ -123,10 +113,6 @@ void enemy::Defence(int state)
 
       Pone.AttackS = Pone.AttackS - Eone.DefenceS;
 
-      cout << "Pone.AttackS:" << Pone.AttackS << endl;
-
-      cout << "AttackTemp:" << Pone.AttackTemp << endl;
-
       break;
     }
 
@@ -136,11 +122,7 @@ void enemy::Defence(int state)
 
       Pone.AttackS = Pone.AttackTemp;
 
-      cout << "AttackTemp:" << Pone.AttackTemp << endl;
-
       break;
     }
   }
-
-  cout << "Eone Defence" << endl;
 }

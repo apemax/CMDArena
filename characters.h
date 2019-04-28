@@ -36,6 +36,7 @@ class player
     void Attack();
     void Defence(int state);
     void Inventory();
+    int PDeath = 0;
     string Name;
     int AttackS = 2;
     int AttackTemp = 0;

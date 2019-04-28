@@ -35,14 +35,12 @@ void Fight()
   {
     if(PDef == 1)
     {
-      cout << "PDef = 1" << endl;
-
       Pone.Defence(2);
 
       PDef = PDef - 1;
     }
 
-    cout << "1) Attack. 2) Defend. 3) exit." << endl;
+    cout << "1) Attack. 2) Defend. 3) Surrender." << endl;
     cout << "Your Health: " << Pone.GetHealth();
 
     cout << " Opponents Health: " << Eone.GetHealth() << endl;
@@ -83,8 +81,6 @@ void Fight()
 
     if(EDef == 1)
     {
-      cout << "EDef = 1" << endl;
-
       Eone.Defence(2);
 
       EDef = EDef - 1;
@@ -108,6 +104,8 @@ void Fight()
       cout << "You have lost." << endl;
 
       running = "false";
+
+      Pone.PDeath + 1;
     }
     else if(Eone.GetHealth() <= 0)
     {
