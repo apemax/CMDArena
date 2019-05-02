@@ -44,6 +44,8 @@ void Arena()
       {
         // Fight
 
+        Eone.Setup();
+
         Fight();
 
         break;

@@ -45,17 +45,18 @@ class player
 
 class enemy
 {
-  int Health = 10;
+  int Health;
   public:
+    void Setup();
     void HealthUp(int a);
     void HealthDown(int b);
     int GetHealth();
     void Attack();
     void Defence(int state);
     string Name;
-    int AttackS = 2;
-    int AttackTemp = 0;
-    int DefenceS = 1;
+    int AttackS;
+    int AttackTemp;
+    int DefenceS;
 };
 
 extern player Pone;

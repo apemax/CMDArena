@@ -18,8 +18,6 @@
 // Author: Peter (apemax) Wright
 // CMDArena
 
-#include <iostream>
-#include <fstream>
 #include "global.h"
 #include "characters.h"
 using namespace std;

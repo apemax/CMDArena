@@ -77,6 +77,60 @@ void player::Inventory()
   cout << "Health: " << Health << " Attack: " << AttackS << "Defence: " << DefenceS << endl;
 }
 
+void enemy::Setup()
+{
+  string FileName;
+  string PresetLine;
+  int i = 1;
+
+  FileName = "preset";
+
+  ifstream PresetFile(FileName, ios::in);
+
+  if(PresetFile.is_open())
+  {
+    for (; i < 4; i++)
+    {
+      getline(PresetFile, PresetLine);
+
+      switch(i)
+      {
+        case 1:
+        {
+          Eone.Name = PresetLine.substr(5, 8);
+
+          cout << Eone.Name << endl;
+
+          break;
+        }
+        case 2:
+        {
+          Eone.Health = stoi(PresetLine.substr(7, 8));
+
+          break;
+        }
+        case 3:
+        {
+          Eone.AttackS = stoi(PresetLine.substr(7));
+
+          break;
+        }
+        case 4:
+        {
+          Eone.DefenceS = stoi(PresetLine.substr(8));
+
+          break;
+        }
+      }
+    }
+  PresetFile.close();
+  }
+  else
+  {
+    cout << "Error: Unable to open file." << endl;
+  }
+}
+
 void enemy::HealthUp(int a)
 {
   Health = Health + a;
