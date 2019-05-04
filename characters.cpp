@@ -74,7 +74,21 @@ void player::Defence(int state)
 
 void player::Inventory()
 {
-  cout << "Health: " << Health << " Attack: " << AttackS << "Defence: " << DefenceS << endl;
+  cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << endl;
+  cout << "Attack: " << AttackS << " Defence: " << DefenceS << endl;
+}
+
+void player::LvlUp()
+{
+  Lvl = Lvl + 1;
+
+  Health = Health + 10;
+
+  AttackS = AttackS + 1;
+
+  DefenceS = DefenceS + 1;
+
+  Exp = 0;
 }
 
 void enemy::Setup()
@@ -98,8 +112,6 @@ void enemy::Setup()
         case 1:
         {
           Eone.Name = PresetLine.substr(5, 8);
-
-          cout << Eone.Name << endl;
 
           break;
         }

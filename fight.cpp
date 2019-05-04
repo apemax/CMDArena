@@ -107,7 +107,14 @@ void Fight()
     }
     else if(Eone.GetHealth() <= 0)
     {
-      cout << "You have won." << endl;
+      cout << "You have won, You gained 10 Exp." << endl;
+
+      Pone.Exp = Pone.Exp + 10;
+
+      if (Pone.Exp >= 100)
+      {
+        Pone.LvlUp();
+      }
 
       running = "false";
     }

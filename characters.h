@@ -36,8 +36,11 @@ class player
     void Attack();
     void Defence(int state);
     void Inventory();
+    void LvlUp();
     int PDeath = 0;
     string Name;
+    int Lvl = 1;
+    int Exp = 0;
     int AttackS = 2;
     int AttackTemp = 0;
     int DefenceS = 1;
