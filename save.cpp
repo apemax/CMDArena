@@ -22,64 +22,31 @@
 #include "characters.h"
 using namespace std;
 
-void Arena()
+void Save()
 {
-  int Opt1;
-  string running = "true";
+  string SaveFileName;
+  int i = 1;
 
-  while (running == "true")
+  cout << "Please enter save file name: ";
+
+  cin >> SaveFileName;
+
+  ofstream SaveFile(SaveFileName, ios::out | ios::app);
+
+  cout << "Saving game..." << endl;
+
+  if(SaveFile.is_open())
   {
-    if(Pone.PDeath == 1)
-    {
-      running = "false";
-    }
-
-    cout << "1) Fight. 2) Store. 3) Inventory. 4) Save. 5) Exit." << endl;
-
-    cin >> Opt1;
-
-    switch (Opt1)
-    {
-      case 1:
-      {
-        // Fight
-
-        Eone.Setup();
-
-        Fight();
-
-        break;
-      }
-      case 2:
-      {
-        // Store
-
-        break;
-      }
-      case 3:
-      {
-        // Inventory
-
-        Pone.Inventory();
-
-        break;
-      }
-      case 4:
-      {
-        // Save game
-
-        Save();
-
-        break;
-      }
-      case 5:
-      {
-        // Exit.
-
-        running = "false";
-
-        break;
-      }
-    }
+    SaveFile << Pone.Name << endl;
+    SaveFile << Pone.GetHealth() << endl;
+    SaveFile << Pone.AttackS << endl;
+    SaveFile << Pone.DefenceS << endl;
+    SaveFile << Pone.Lvl << endl;
+    SaveFile << Pone.Exp << endl;
+    SaveFile.close();
+  }
+  else
+  {
+    cout << "Error: Unable to open save file." << endl;
   }
 }

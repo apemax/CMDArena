@@ -56,7 +56,7 @@ int main()
       {
         // Load game
 
-        cout << "Load game." << endl;
+        Load();
 
         break;
       }

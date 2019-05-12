@@ -27,5 +27,7 @@ using namespace std;
 
 void Arena();
 void Fight();
+void Save();
+void Load();
 
 #endif //GLOBAL_H

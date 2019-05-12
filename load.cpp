@@ -22,64 +22,9 @@
 #include "characters.h"
 using namespace std;
 
-void Arena()
+void Load()
 {
-  int Opt1;
-  string running = "true";
+  //Load
 
-  while (running == "true")
-  {
-    if(Pone.PDeath == 1)
-    {
-      running = "false";
-    }
-
-    cout << "1) Fight. 2) Store. 3) Inventory. 4) Save. 5) Exit." << endl;
-
-    cin >> Opt1;
-
-    switch (Opt1)
-    {
-      case 1:
-      {
-        // Fight
-
-        Eone.Setup();
-
-        Fight();
-
-        break;
-      }
-      case 2:
-      {
-        // Store
-
-        break;
-      }
-      case 3:
-      {
-        // Inventory
-
-        Pone.Inventory();
-
-        break;
-      }
-      case 4:
-      {
-        // Save game
-
-        Save();
-
-        break;
-      }
-      case 5:
-      {
-        // Exit.
-
-        running = "false";
-
-        break;
-      }
-    }
-  }
+  cout << "Loading game..." << endl;
 }
