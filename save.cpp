@@ -25,7 +25,6 @@ using namespace std;
 void Save()
 {
   string SaveFileName;
-  int i = 1;
 
   cout << "Please enter save file name: ";
 
@@ -33,7 +32,7 @@ void Save()
 
   ofstream SaveFile(SaveFileName, ios::out | ios::app);
 
-  cout << "Saving game..." << endl;
+  cout << "Saving game...";
 
   if(SaveFile.is_open())
   {
@@ -44,9 +43,11 @@ void Save()
     SaveFile << Pone.Lvl << endl;
     SaveFile << Pone.Exp << endl;
     SaveFile.close();
+
+    cout << " Game saved." << endl;
   }
   else
   {
-    cout << "Error: Unable to open save file." << endl;
+    cout << " Error: Unable to open save file." << endl;
   }
 }
