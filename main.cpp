@@ -58,6 +58,8 @@ int main()
 
         Load();
 
+        Arena();
+
         break;
       }
 

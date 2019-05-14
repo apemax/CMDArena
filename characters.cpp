@@ -32,11 +32,6 @@ void player::HealthDown(int b)
   Health = Health - b;
 }
 
-int player::GetHealth()
-{
-  return Pone.Health;
-}
-
 void player::Attack()
 {
   //Attack.
@@ -151,11 +146,6 @@ void enemy::HealthUp(int a)
 void enemy::HealthDown(int b)
 {
   Health = Health - b;
-}
-
-int enemy::GetHealth()
-{
-  return Eone.Health;
 }
 
 void enemy::Attack()

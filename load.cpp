@@ -24,7 +24,70 @@ using namespace std;
 
 void Load()
 {
-  //Load
+  string LoadFileName;
+  string LoadLine;
+  int i = 1;
+
+  cout << "Please enter save file name to load: ";
+
+  cin >> LoadFileName;
+
+  ifstream LoadFile(LoadFileName, ios::out);
+
+  cout << "Loading save game file... ";
+
+  if(LoadFile.is_open())
+  {
+    for(; i < 6; i++)
+    {
+      getline(LoadFile, LoadLine);
+
+      switch(i)
+      {
+        case 1:
+        {
+          Pone.Name = LoadLine;
+
+          break;
+        }
+        case 2:
+        {
+          Pone.Health = stoi(LoadLine);
+
+          break;
+        }
+        case 3:
+        {
+          Pone.AttackS = stoi(LoadLine);
+
+          break;
+        }
+        case 4:
+        {
+          Pone.DefenceS = stoi(LoadLine);
+
+          break;
+        }
+        case 5:
+        {
+          Pone.Lvl = stoi(LoadLine);
+
+          break;
+        }
+        case 6:
+        {
+          Pone.Exp = stoi(LoadLine);
+
+          break;
+        }
+      }
+    }
+    LoadFile.close();
+  }
+  else
+  {
+    cout << "Error: Couldn't load save game file." << endl;
+  }
 
   cout << "Loading game..." << endl;
 }

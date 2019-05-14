@@ -37,7 +37,7 @@ void Save()
   if(SaveFile.is_open())
   {
     SaveFile << Pone.Name << endl;
-    SaveFile << Pone.GetHealth() << endl;
+    SaveFile << Pone.Health << endl;
     SaveFile << Pone.AttackS << endl;
     SaveFile << Pone.DefenceS << endl;
     SaveFile << Pone.Lvl << endl;

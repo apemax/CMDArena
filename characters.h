@@ -27,18 +27,17 @@ using namespace std;
 
 class player
 {
-  int Health = 10;
   public:
     //player();
     void HealthUp(int a);
     void HealthDown(int b);
-    int GetHealth();
     void Attack();
     void Defence(int state);
     void Inventory();
     void LvlUp();
     int PDeath = 0;
     string Name;
+    int Health = 10;
     int Lvl = 1;
     int Exp = 0;
     int AttackS = 2;
@@ -48,15 +47,14 @@ class player
 
 class enemy
 {
-  int Health;
   public:
     void Setup();
     void HealthUp(int a);
     void HealthDown(int b);
-    int GetHealth();
     void Attack();
     void Defence(int state);
     string Name;
+    int Health;
     int AttackS;
     int AttackTemp;
     int DefenceS;

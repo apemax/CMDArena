@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018
+// Copywright (C) 2018 - 2019
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -39,9 +39,9 @@ void Fight()
     }
 
     cout << "1) Attack. 2) Defend. 3) Surrender." << endl;
-    cout << "Your Health: " << Pone.GetHealth();
+    cout << "Your Health: " << Pone.Health;
 
-    cout << " Opponents Health: " << Eone.GetHealth() << endl;
+    cout << " Opponents Health: " << Eone.Health << endl;
 
     cin >> Opt1;
 
@@ -84,11 +84,11 @@ void Fight()
       EDef = EDef - 1;
     }
 
-    if(Eone.GetHealth() > 4)
+    if(Eone.Health > 4)
     {
       Eone.Attack();
     }
-    else if(Eone.GetHealth() <= 4)
+    else if(Eone.Health <= 4)
     {
       //Defend.
 
@@ -97,7 +97,7 @@ void Fight()
       EDef = EDef + 1;
     }
 
-    if(Pone.GetHealth() <= 0)
+    if(Pone.Health <= 0)
     {
       cout << "You have lost." << endl;
 
@@ -105,7 +105,7 @@ void Fight()
 
       Pone.PDeath + 1;
     }
-    else if(Eone.GetHealth() <= 0)
+    else if(Eone.Health <= 0)
     {
       cout << "You have won, You gained 10 Exp." << endl;
 
