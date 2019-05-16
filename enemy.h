@@ -18,37 +18,28 @@
 // Author: Peter (apemax) Wright
 // CMDArena
 
-#include "global.h"
-#include "player.h"
-#include "enemy.h"
+#include <iostream>
+#include <fstream>
 using namespace std;
 
-void Save()
+#ifndef ENEMY_H
+#define ENEMY_H
+
+class enemy
 {
-  string SaveFileName;
+  public:
+    void Setup();
+    void HealthUp(int a);
+    void HealthDown(int b);
+    void Attack();
+    void Defence(int state);
+    string Name;
+    int Health;
+    int AttackS;
+    int AttackTemp;
+    int DefenceS;
+};
 
-  cout << "Please enter save file name: ";
+extern enemy Eone;
 
-  cin >> SaveFileName;
-
-  ofstream SaveFile(SaveFileName, ios::out | ios::app);
-
-  cout << "Saving game...";
-
-  if(SaveFile.is_open())
-  {
-    SaveFile << Pone.Name << endl;
-    SaveFile << Pone.Health << endl;
-    SaveFile << Pone.AttackS << endl;
-    SaveFile << Pone.DefenceS << endl;
-    SaveFile << Pone.Lvl << endl;
-    SaveFile << Pone.Exp << endl;
-    SaveFile.close();
-
-    cout << " Game saved." << endl;
-  }
-  else
-  {
-    cout << " Error: Unable to open save file." << endl;
-  }
-}
+#endif //ENEMY_H

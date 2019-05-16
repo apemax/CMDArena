@@ -23,64 +23,66 @@
 #include "enemy.h"
 using namespace std;
 
-void Arena()
+void player::HealthUp(int a)
 {
-  int Opt1;
-  string running = "true";
+  Health = Health + a;
+}
 
-  while (running == "true")
+void player::HealthDown(int b)
+{
+  Health = Health - b;
+}
+
+void player::Attack()
+{
+  //Attack.
+
+  Eone.HealthDown(Pone.AttackS);
+}
+
+void player::Defence(int state)
+{
+  //Defend.
+
+  switch(state)
   {
-    if(Pone.PDeath == 1)
+    case 1:
     {
-      running = "false";
+      //Take DefenceS away from AttackS
+
+      Eone.AttackTemp = Eone.AttackS;
+
+      Eone.AttackS = Eone.AttackS - Pone.DefenceS;
+
+      break;
     }
 
-    cout << "1) Fight. 2) Store. 3) Inventory. 4) Save. 5) Exit." << endl;
-
-    cin >> Opt1;
-
-    switch (Opt1)
+    case 2:
     {
-      case 1:
-      {
-        // Fight
+      //Restore original value of AttackS
 
-        Eone.Setup();
+      Eone.AttackS = Eone.AttackTemp;
 
-        Fight();
-
-        break;
-      }
-      case 2:
-      {
-        // Store
-
-        break;
-      }
-      case 3:
-      {
-        // Inventory
-
-        Pone.Inventory();
-
-        break;
-      }
-      case 4:
-      {
-        // Save game
-
-        Save();
-
-        break;
-      }
-      case 5:
-      {
-        // Exit.
-
-        running = "false";
-
-        break;
-      }
+      break;
     }
   }
+}
+
+void player::Inventory()
+{
+  cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << endl;
+  cout << "Attack: " << AttackS << " Defence: " << DefenceS << endl;
+}
+
+void player::LvlUp()
+{
+  Lvl = Lvl + 1;
+
+  Health = Health + 10;
+
+  AttackS = AttackS + 1;
+
+  DefenceS = DefenceS + 1;
+
+  Exp = 0;
 }

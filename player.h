@@ -22,13 +22,12 @@
 #include <fstream>
 using namespace std;
 
-#ifndef CHARACTERS_H
-#define CHARACTERS_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 class player
 {
   public:
-    //player();
     void HealthUp(int a);
     void HealthDown(int b);
     void Attack();
@@ -45,22 +44,6 @@ class player
     int DefenceS = 1;
 };
 
-class enemy
-{
-  public:
-    void Setup();
-    void HealthUp(int a);
-    void HealthDown(int b);
-    void Attack();
-    void Defence(int state);
-    string Name;
-    int Health;
-    int AttackS;
-    int AttackTemp;
-    int DefenceS;
-};
-
 extern player Pone;
-extern enemy Eone;
 
-#endif //CHARACTERS_H
+#endif //PLAYER_H

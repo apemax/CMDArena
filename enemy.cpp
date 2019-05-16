@@ -19,72 +19,9 @@
 // CMDArena
 
 #include "global.h"
-#include "characters.h"
+#include "player.h"
+#include "enemy.h"
 using namespace std;
-
-void player::HealthUp(int a)
-{
-  Health = Health + a;
-}
-
-void player::HealthDown(int b)
-{
-  Health = Health - b;
-}
-
-void player::Attack()
-{
-  //Attack.
-
-  Eone.HealthDown(Pone.AttackS);
-}
-
-void player::Defence(int state)
-{
-  //Defend.
-
-  switch(state)
-  {
-    case 1:
-    {
-      //Take DefenceS away from AttackS
-
-      Eone.AttackTemp = Eone.AttackS;
-
-      Eone.AttackS = Eone.AttackS - Pone.DefenceS;
-
-      break;
-    }
-
-    case 2:
-    {
-      //Restore original value of AttackS
-
-      Eone.AttackS = Eone.AttackTemp;
-
-      break;
-    }
-  }
-}
-
-void player::Inventory()
-{
-  cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << endl;
-  cout << "Attack: " << AttackS << " Defence: " << DefenceS << endl;
-}
-
-void player::LvlUp()
-{
-  Lvl = Lvl + 1;
-
-  Health = Health + 10;
-
-  AttackS = AttackS + 1;
-
-  DefenceS = DefenceS + 1;
-
-  Exp = 0;
-}
 
 void enemy::Setup()
 {

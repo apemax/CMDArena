@@ -19,7 +19,8 @@
 // CMDArena
 
 #include "global.h"
-#include "characters.h"
+#include "player.h"
+#include "enemy.h"
 using namespace std;
 
 void Load()
