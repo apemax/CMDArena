@@ -70,8 +70,126 @@ void player::Defence(int state)
 
 void player::Inventory()
 {
-  cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << endl;
-  cout << "Attack: " << AttackS << " Defence: " << DefenceS << endl;
+  int Opt1;
+  bool running = true;
+
+  while(running == true)
+  {
+    cout << "1) View Stats. 2) Manage Weapons. 3) Manage Items. 4) Exit." << endl;
+
+    cin >> Opt1;
+
+    switch(Opt1)
+    {
+      case 1:
+      {
+        cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << endl;
+        cout << "Attack: " << AttackS << " Defence: " << DefenceS << endl;
+
+        break;
+      }
+      case 2:
+      {
+        bool runningWM = true;
+        int WMOpt;
+
+        while(runningWM == true)
+        {
+          cout << "1) List. 2) Equip. 3) Unequip. 4) Exit." << endl;
+
+          cin >> WMOpt;
+
+          cout << endl;
+
+          switch(WMOpt)
+          {
+            case 1:
+            {
+              for(int n = 0; n < 10; n++)
+              {
+                cout << OwnedWeapons[n] << " | ";
+              }
+
+              cout << endl;
+
+              break;
+            }
+            case 2:
+            {
+              break;
+            }
+            case 3:
+            {
+              break;
+            }
+            case 4:
+            {
+              runningWM = false;
+
+              break;
+            }
+          }
+        }
+
+        break;
+      }
+      case 3:
+      {
+        bool runningIM = true;
+        int IMOpt;
+
+        while(runningIM == true)
+        {
+          cout << "1) List. 2) Use. 3) Equip. 4) Unequip. 5) exit." << endl;
+
+          cin >> IMOpt;
+
+          cout << endl;
+
+          switch(IMOpt)
+          {
+            case 1:
+            {
+              for(int n = 0; n < 10; n++)
+              {
+                cout << OwnedItems[n] << " | ";
+              }
+
+              cout << endl;
+
+              break;
+            }
+            case 2:
+            {
+              break;
+            }
+            case 3:
+            {
+              break;
+            }
+            case 4:
+            {
+              break;
+            }
+            case 5:
+            {
+              runningIM = false;
+
+              break;
+            }
+          }
+        }
+
+        break;
+      }
+      case 4:
+      {
+        running = false;
+
+        break;
+      }
+    }
+  }
 }
 
 void player::LvlUp()

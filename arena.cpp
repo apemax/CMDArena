@@ -26,9 +26,9 @@ using namespace std;
 void Arena()
 {
   int Opt1;
-  string running = "true";
+  bool running = true;
 
-  while (running == "true")
+  while (running == true)
   {
     if(Pone.PDeath == 1)
     {
@@ -77,7 +77,7 @@ void Arena()
       {
         // Exit.
 
-        running = "false";
+        running = false;
 
         break;
       }

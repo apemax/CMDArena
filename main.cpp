@@ -28,9 +28,9 @@ using namespace std;
 int main()
 {
   int Opt1;
-  string running = "true";
+  bool running = true;
 
-  while (running == "true")
+  while (running == true)
   {
     cout << "1) New Game. 2) Load Game. 3) Options. 4) Exit." << endl;
 
@@ -74,7 +74,7 @@ int main()
       }
       case 4:
       {
-        running = "false";
+        running = false;
 
         break;
       }

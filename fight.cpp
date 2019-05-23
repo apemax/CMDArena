@@ -28,9 +28,9 @@ void Fight()
   int Opt1;
   int PDef = 0;
   int EDef = 0;
-  string running = "true";
+  bool running = true;
 
-  while (running == "true")
+  while (running == true)
   {
     if(PDef == 1)
     {
@@ -70,7 +70,7 @@ void Fight()
 
       case 3:
       {
-        running = "false";
+        running = false;
 
         break;
       }
@@ -102,7 +102,7 @@ void Fight()
     {
       cout << "You have lost." << endl;
 
-      running = "false";
+      running = false;
 
       Pone.PDeath + 1;
     }
@@ -117,7 +117,7 @@ void Fight()
         Pone.LvlUp();
       }
 
-      running = "false";
+      running = false;
     }
   }
 }

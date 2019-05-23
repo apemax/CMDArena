@@ -42,6 +42,8 @@ class player
     int AttackS = 2;
     int AttackTemp = 0;
     int DefenceS = 1;
+    string OwnedWeapons[10];
+    string OwnedItems[10];
 };
 
 extern player Pone;
