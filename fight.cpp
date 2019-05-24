@@ -40,9 +40,10 @@ void Fight()
     }
 
     cout << "1) Attack. 2) Defend. 3) Surrender." << endl;
-    cout << "Your Health: " << Pone.Health;
 
-    cout << " Opponents Health: " << Eone.Health << endl;
+    cout << "Your Health: " << Pone.Health << " Opponents Health: " << Eone.Health << endl;
+
+    cout << ">";
 
     cin >> Opt1;
 

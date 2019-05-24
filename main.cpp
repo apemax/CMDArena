@@ -34,6 +34,8 @@ int main()
   {
     cout << "1) New Game. 2) Load Game. 3) Options. 4) Exit." << endl;
 
+    cout << ">";
+
     cin >> Opt1;
 
     switch (Opt1)

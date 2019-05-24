@@ -31,6 +31,8 @@ void Load()
 
   cout << "Please enter save file name to load: ";
 
+  cout << ">";
+
   cin >> LoadFileName;
 
   ifstream LoadFile(LoadFileName, ios::out);

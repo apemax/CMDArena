@@ -37,6 +37,8 @@ void Arena()
 
     cout << "1) Fight. 2) Store. 3) Inventory. 4) Save. 5) Exit." << endl;
 
+    cout << ">";
+
     cin >> Opt1;
 
     switch (Opt1)

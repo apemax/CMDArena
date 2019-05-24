@@ -77,6 +77,8 @@ void player::Inventory()
   {
     cout << "1) View Stats. 2) Manage Weapons. 3) Manage Items. 4) Exit." << endl;
 
+    cout << ">";
+
     cin >> Opt1;
 
     switch(Opt1)
@@ -96,6 +98,8 @@ void player::Inventory()
         while(runningWM == true)
         {
           cout << "1) List. 2) Equip. 3) Unequip. 4) Exit." << endl;
+
+          cout << ">";
 
           cin >> WMOpt;
 
@@ -141,6 +145,8 @@ void player::Inventory()
         while(runningIM == true)
         {
           cout << "1) List. 2) Use. 3) Equip. 4) Unequip. 5) exit." << endl;
+
+          cout << ">";
 
           cin >> IMOpt;
 

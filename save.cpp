@@ -29,6 +29,8 @@ void Save()
 
   cout << "Please enter save file name: ";
 
+  cout << ">";
+
   cin >> SaveFileName;
 
   ofstream SaveFile(SaveFileName, ios::out | ios::app);
