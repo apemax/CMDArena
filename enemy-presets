@@ -1,0 +1,10 @@
+Preset=1
+Name=test
+Health=10
+Attack=2
+Defence=1
+Preset=2
+Name=test
+Health=20
+Attack=4
+Defence=2

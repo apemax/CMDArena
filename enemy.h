@@ -28,7 +28,7 @@ using namespace std;
 class enemy
 {
   public:
-    void Setup();
+    void Setup(int preset);
     void HealthUp(int a);
     void HealthDown(int b);
     void Attack();
