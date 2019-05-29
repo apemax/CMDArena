@@ -25,12 +25,10 @@ using namespace std;
 
 void enemy::Setup(int preset)
 {
-  string FileName;
+  string FileName = "enemy-presets";
   string PresetLine;
   int i = 1;
   bool runningP = true;
-
-  FileName = "enemy-presets";
 
   ifstream PresetFile(FileName, ios::in);
 
@@ -39,8 +37,6 @@ void enemy::Setup(int preset)
     while(runningP == true)
     {
       getline(PresetFile, PresetLine);
-
-      cout << PresetLine.substr(0,6) << endl;
 
       if(PresetLine.substr(0, 6) == "Preset")
       {
@@ -82,39 +78,7 @@ void enemy::Setup(int preset)
         }
       }
     }
-
-    for (; i < 4; i++)
-    {
-      getline(PresetFile, PresetLine);
-
-      switch(i)
-      {
-        case 1:
-        {
-          Eone.Name = PresetLine.substr(5, 8);
-
-          break;
-        }
-        case 2:
-        {
-          Eone.Health = stoi(PresetLine.substr(7, 8));
-
-          break;
-        }
-        case 3:
-        {
-          Eone.AttackS = stoi(PresetLine.substr(7));
-
-          break;
-        }
-        case 4:
-        {
-          Eone.DefenceS = stoi(PresetLine.substr(8));
-
-          break;
-        }
-      }
-    }
+    
   PresetFile.close();
   }
   else
