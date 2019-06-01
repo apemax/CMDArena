@@ -109,7 +109,9 @@ void Fight()
     }
     else if(Eone.Health <= 0)
     {
-      cout << "You have won, You gained 10 Exp." << endl;
+      cout << "You have won, You gained 10 Exp and 10 Credits." << endl;
+
+      Pone.Credits = Pone.Credits + 10;
 
       Pone.Exp = Pone.Exp + 10;
 

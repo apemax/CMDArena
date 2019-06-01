@@ -39,6 +39,7 @@ class player
     int Health = 10;
     int Lvl = 1;
     int Exp = 0;
+    int Credits = 0;
     int AttackS = 2;
     int AttackTemp = 0;
     int DefenceS = 1;

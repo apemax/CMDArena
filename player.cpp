@@ -85,7 +85,7 @@ void player::Inventory()
     {
       case 1:
       {
-        cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << endl;
+        cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << "Credits: " << Pone.Credits << endl;
         cout << "Attack: " << AttackS << " Defence: " << DefenceS << endl;
 
         break;
