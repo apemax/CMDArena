@@ -18,11 +18,20 @@
 // Author: Peter (apemax) Wright
 // CMDArena
 
-#include "player.h"
-#include "enemy.h"
-#include "store.h"
+#include <iostream>
+#include <fstream>
 using namespace std;
 
-player Pone;
-enemy Eone;
-store Mstore;
+#ifndef STORE_H
+#define STORE_H
+
+class store
+{
+  public:
+    void StoreMain();
+    int Credits;
+};
+
+extern store Mstore;
+
+#endif //STORE_H

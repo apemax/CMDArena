@@ -20,72 +20,46 @@
 
 #include "global.h"
 #include "player.h"
-#include "enemy.h"
 #include "store.h"
 using namespace std;
 
-void Arena()
+void store::StoreMain()
 {
-  int Opt1;
-  bool running = true;
+  string SOpt;
+  bool runningS = true;
 
-  while (running == true)
+  cout << "Welcome to the store." << endl;
+
+  while(runningS)
   {
-    if(Pone.PDeath == 1)
+    cout << "How can I help you?" << endl;
+
+    cin.ignore();
+
+    getline(cin, SOpt);
+
+    if(SOpt == "buy weapons")
     {
-      running = "false";
+      cout << "buy weapons." << endl;
     }
 
-    cout << "1) Fight. 2) Store. 3) Inventory. 4) Save. 5) Exit." << endl;
-
-    cout << ">";
-
-    cin >> Opt1;
-
-    switch (Opt1)
+    else if(SOpt == "sell weapons")
     {
-      case 1:
-      {
-        // Fight
+      cout << "sell weapons." << endl;
+    }
 
-        Eone.Setup(1);
+    else if(SOpt == "buy items")
+    {
+      cout << "buy items." << endl;
+    }
 
-        Fight();
-
-        break;
-      }
-      case 2:
-      {
-        // Store
-
-        Mstore.StoreMain();
-
-        break;
-      }
-      case 3:
-      {
-        // Inventory
-
-        Pone.Inventory();
-
-        break;
-      }
-      case 4:
-      {
-        // Save game
-
-        Save();
-
-        break;
-      }
-      case 5:
-      {
-        // Exit.
-
-        running = false;
-
-        break;
-      }
+    else if(SOpt == "sell items")
+    {
+      cout << "sell items." << endl;
+    }
+    else if(SOpt == "exit")
+    {
+      runningS == false;
     }
   }
 }
