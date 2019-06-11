@@ -1,2 +1,2 @@
 all:
-	g++ -no-pie main.cpp global.cpp global.h arena.cpp player.cpp player.h enemy.cpp enemy.h store.cpp store.h fight.cpp save.cpp load.cpp -o CMDArena
+	g++ -no-pie main.cpp global.cpp arena.cpp player.cpp enemy.cpp store.cpp weapons.cpp fight.cpp save.cpp load.cpp -o CMDArena
