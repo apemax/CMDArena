@@ -21,6 +21,7 @@
 #include "global.h"
 #include "player.h"
 #include "store.h"
+#include "weapons.h"
 using namespace std;
 
 void store::StoreMain()
@@ -34,13 +35,44 @@ void store::StoreMain()
   {
     cout << "How can I help you?" << endl;
 
+    cout << ">";
+
     cin.ignore();
 
     getline(cin, SOpt);
 
     if(SOpt == "buy weapons")
     {
-      cout << "buy weapons." << endl;
+      for(int n = 0; n < 10; n++)
+      {
+        cout << WeaponsInStock[n] << " | ";
+      }
+
+      cout << endl;
+
+      cout << "Which do you want to buy?" << endl;
+
+      cout << ">";
+
+      getline(cin, SOpt);
+
+      if(SOpt == "Short Sword")
+      {
+        cout << "That will cost: " << SSword.Price << " Credits, Are you sure?" << endl;
+
+        cout << ">";
+
+        getline(cin, SOpt);
+
+        if(SOpt == "yes")
+        {
+          Pone.Credits = Pone.Credits - SSword.Price;
+
+          Mstore.Credits = Mstore.Credits + SSword.Price;
+
+          cout << "Thank you." << endl;
+        }
+      }
     }
 
     else if(SOpt == "sell weapons")
@@ -59,7 +91,7 @@ void store::StoreMain()
     }
     else if(SOpt == "exit")
     {
-      runningS == false;
+      runningS = false;
     }
   }
 }

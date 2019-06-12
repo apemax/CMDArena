@@ -21,8 +21,11 @@
 #include "player.h"
 #include "enemy.h"
 #include "store.h"
+#include "weapons.h"
 using namespace std;
 
 player Pone;
 enemy Eone;
 store Mstore;
+
+weapon SSword;

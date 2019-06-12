@@ -32,8 +32,10 @@ class weapon
     string name;
     int WAttackS;
     int WDefenceS;
-    int Price;
+    int Price = 2;
     int Value;
 };
+
+extern weapon SSword;
 
 #endif //WEAPONS_H
