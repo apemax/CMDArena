@@ -31,13 +31,13 @@ void store::StoreMain()
 
   cout << "Welcome to the store." << endl;
 
+  cin.ignore();
+
   while(runningS)
   {
     cout << "How can I help you?" << endl;
 
     cout << ">";
-
-    cin.ignore();
 
     getline(cin, SOpt);
 
@@ -69,6 +69,8 @@ void store::StoreMain()
           Pone.Credits = Pone.Credits - SSword.Price;
 
           Mstore.Credits = Mstore.Credits + SSword.Price;
+
+          SSword.AddToPlayer(SSword.name);
 
           cout << "Thank you." << endl;
         }

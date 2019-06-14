@@ -32,3 +32,13 @@ void weapon::Unequip()
 {
   cout << "Unequip weapon." << endl;
 }
+
+void weapon::AddToPlayer(string WeaponName)
+{
+  Pone.OwnedWeapons[0] = WeaponName;
+}
+
+void weapon::RemoveFromPlayer(string WeaponName)
+{
+  cout << "Remove from player." << endl;
+}

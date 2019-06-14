@@ -29,6 +29,8 @@ class weapon
   public:
     void Equip();
     void Unequip();
+    void AddToPlayer(string WeaponName);
+    void RemoveFromPlayer(string WeaponName);
     string name;
     int WAttackS;
     int WDefenceS;
