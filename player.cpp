@@ -21,6 +21,7 @@
 #include "global.h"
 #include "player.h"
 #include "enemy.h"
+#include "weapons.h"
 using namespace std;
 
 void player::HealthUp(int a)
@@ -85,15 +86,18 @@ void player::Inventory()
     {
       case 1:
       {
-        cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << "Credits: " << Pone.Credits << endl;
+        cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << " Credits: " << Credits << endl;
         cout << "Attack: " << AttackS << " Defence: " << DefenceS << endl;
+        cout << "Weapons equipped: Left hand: " << LeftHand << " Right hand: " << RightHand << endl;
 
         break;
       }
       case 2:
       {
         bool runningWM = true;
-        int WMOpt;
+        string WMOpt;
+
+        cin.ignore();
 
         while(runningWM == true)
         {
@@ -101,38 +105,42 @@ void player::Inventory()
 
           cout << ">";
 
-          cin >> WMOpt;
+          getline(cin, WMOpt);
 
           cout << endl;
 
-          switch(WMOpt)
+          if(WMOpt.substr(0, 4) == "List")
           {
-            case 1:
+            for(int n = 0; n < 10; n++)
             {
-              for(int n = 0; n < 10; n++)
-              {
-                cout << OwnedWeapons[n] << " | ";
-              }
-
-              cout << endl;
-
-              break;
+              cout << OwnedWeapons[n] << " | ";
             }
-            case 2:
-            {
-              break;
-            }
-            case 3:
-            {
-              break;
-            }
-            case 4:
-            {
-              runningWM = false;
 
-              break;
+            cout << endl;
+          }
+          else if(WMOpt.substr(0, 5) == "Equip")
+          {
+            //Equip waepons
+
+            if(WMOpt.substr(6, 11) == "Short Sword")
+            {
+              SSword.Equip(WMOpt.substr(18, 5));
             }
           }
+          else if(WMOpt.substr(0, 7) == "Unequip")
+          {
+            //Unequip weapons.
+
+            if(WMOpt.substr(8, 11) == "Short Sword")
+            {
+              SSword.Unequip(WMOpt.substr(20, 5));
+            }
+          }
+          else if(WMOpt.substr(0, 4) == "Exit")
+          {
+            runningWM = false;
+          }
+
         }
 
         break;

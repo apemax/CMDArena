@@ -23,22 +23,48 @@
 #include "weapons.h"
 using namespace std;
 
-void weapon::Equip()
+void weapon::Equip(string Slot)
 {
-  cout << "Equip weapon." << endl;
+  if(Slot.substr(0, 4) == "Left")
+  {
+    Pone.LeftHand = Name;
+  }
+  else if(Slot == "Right")
+  {
+    Pone.RightHand = Name;
+  }
+
+  Pone.AttackS = Pone.AttackS + WAttackS;
+
+  Pone.DefenceS = Pone.DefenceS + WDefenceS;
+
+  cout << Name << " Equiped." << endl;
 }
 
-void weapon::Unequip()
+void weapon::Unequip(string Slot)
 {
-  cout << "Unequip weapon." << endl;
+  if(Slot.substr(0, 4) == "Left")
+  {
+    Pone.LeftHand.clear();
+  }
+  else if(Slot == "Right")
+  {
+    Pone.RightHand.clear();
+  }
+
+  Pone.AttackS = Pone.AttackS - WAttackS;
+
+  Pone.DefenceS = Pone.DefenceS - WDefenceS;
+
+  cout << Name << " Unequipped." << endl;
 }
 
-void weapon::AddToPlayer(string WeaponName)
+void weapon::AddToPlayer()
 {
-  Pone.OwnedWeapons[0] = WeaponName;
+  Pone.OwnedWeapons[0] = Name;
 }
 
-void weapon::RemoveFromPlayer(string WeaponName)
+void weapon::RemoveFromPlayer()
 {
-  cout << "Remove from player." << endl;
+  Pone.OwnedWeapons[0].clear();
 }

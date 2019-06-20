@@ -70,7 +70,7 @@ void store::StoreMain()
 
           Mstore.Credits = Mstore.Credits + SSword.Price;
 
-          SSword.AddToPlayer(SSword.name);
+          SSword.AddToPlayer();
 
           cout << "Thank you." << endl;
         }

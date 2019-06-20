@@ -27,11 +27,11 @@ using namespace std;
 class weapon
 {
   public:
-    void Equip();
-    void Unequip();
-    void AddToPlayer(string WeaponName);
-    void RemoveFromPlayer(string WeaponName);
-    string name;
+    void Equip(string slot);
+    void Unequip(string Slot);
+    void AddToPlayer();
+    void RemoveFromPlayer();
+    string Name = "Short Sword";
     int WAttackS;
     int WDefenceS;
     int Price = 2;
