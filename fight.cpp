@@ -105,7 +105,7 @@ void Fight()
 
       running = false;
 
-      Pone.PDeath + 1;
+      Pone.PDeath = false;
     }
     else if(Eone.Health <= 0)
     {

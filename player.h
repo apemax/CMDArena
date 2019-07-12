@@ -34,7 +34,7 @@ class player
     void Defence(int state);
     void Inventory();
     void LvlUp();
-    int PDeath = 0;
+    bool PDeath = false;
     string Name;
     int Health = 10;
     int Lvl = 1;

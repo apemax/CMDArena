@@ -31,7 +31,7 @@ void Arena()
 
   while (running == true)
   {
-    if(Pone.PDeath == 1)
+    if(Pone.PDeath == true)
     {
       running = "false";
     }
