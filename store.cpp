@@ -21,7 +21,7 @@
 #include "global.h"
 #include "player.h"
 #include "store.h"
-#include "weapons.h"
+#include "attack.h"
 using namespace std;
 
 void store::StoreMain()

@@ -21,10 +21,10 @@
 #include <iostream>
 using namespace std;
 
-#ifndef WEAPONS_H
-#define WEAPONS_H
+#ifndef ATTACK_H
+#define ATTACK_H
 
-class weapon
+class attack
 {
   public:
     void Equip(string slot);
@@ -38,6 +38,6 @@ class weapon
     int Value;
 };
 
-extern weapon SSword;
+extern attack SSword;
 
-#endif //WEAPONS_H
+#endif //ATTACK_H

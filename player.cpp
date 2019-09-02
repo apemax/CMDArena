@@ -21,7 +21,7 @@
 #include "global.h"
 #include "player.h"
 #include "enemy.h"
-#include "weapons.h"
+#include "attack.h"
 using namespace std;
 
 void player::HealthUp(int a)

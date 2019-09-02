@@ -20,10 +20,10 @@
 
 #include "global.h"
 #include "player.h"
-#include "weapons.h"
+#include "attack.h"
 using namespace std;
 
-void weapon::Equip(string Slot)
+void attack::Equip(string Slot)
 {
   if(Slot.substr(0, 4) == "Left")
   {
@@ -41,7 +41,7 @@ void weapon::Equip(string Slot)
   cout << Name << " Equiped." << endl;
 }
 
-void weapon::Unequip(string Slot)
+void attack::Unequip(string Slot)
 {
   if(Slot.substr(0, 4) == "Left")
   {
@@ -59,12 +59,12 @@ void weapon::Unequip(string Slot)
   cout << Name << " Unequipped." << endl;
 }
 
-void weapon::AddToPlayer()
+void attack::AddToPlayer()
 {
   Pone.OwnedWeapons[0] = Name;
 }
 
-void weapon::RemoveFromPlayer()
+void attack::RemoveFromPlayer()
 {
   Pone.OwnedWeapons[0].clear();
 }

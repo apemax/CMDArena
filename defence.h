@@ -17,15 +17,3 @@
 // Copywright (C) 2018 - 2019
 // Author: Peter (apemax) Wright
 // CMDArena
-
-#include "player.h"
-#include "enemy.h"
-#include "store.h"
-#include "attack.h"
-using namespace std;
-
-player Pone;
-enemy Eone;
-store Mstore;
-
-attack SSword;
