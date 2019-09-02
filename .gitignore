@@ -1,0 +1,5 @@
+# ignore obj directory
+**/obj
+
+# ignore executable
+CMDArena

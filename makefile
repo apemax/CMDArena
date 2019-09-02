@@ -1,12 +1,12 @@
 CC = g++
-CXXFLAGS = -no-pie -Wall
-DEPS = global.h enemy.h player.h store.h weapons.h
+CXXFLAGS = -no-pie -Werror -Wall -Wextra
+DEPS = global.h enemy.h player.h store.h attack.h
 
 ODIR = obj
 
 BIN = CMDArena
 
-_OBJ = main.o global.o arena.o player.o enemy.o store.o weapons.o fight.o save.o load.o
+_OBJ = main.o global.o arena.o player.o enemy.o store.o attack.o fight.o save.o load.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: %.cpp $(DEPS)
