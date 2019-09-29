@@ -31,13 +31,12 @@ class attack
     void Unequip(string Slot);
     void AddToPlayer();
     void RemoveFromPlayer();
-    string Name = "Short Sword";
-    int WAttackS;
-    int WDefenceS;
+    string Name = "Attack";
+    int CAttackS;
     int Price = 2;
     int Value;
 };
 
-extern attack SSword;
+extern attack AttackCommand;
 
 #endif //ATTACK_H

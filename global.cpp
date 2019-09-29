@@ -22,10 +22,12 @@
 #include "enemy.h"
 #include "store.h"
 #include "attack.h"
+#include "defend.h"
 using namespace std;
 
 player Pone;
 enemy Eone;
 store Mstore;
 
-attack SSword;
+attack AttackCommand;
+defend DefendCommand;

@@ -29,7 +29,7 @@ class store
 {
   public:
     void StoreMain();
-    string WeaponsInStock[10];
+    string CommandsInStock[10];
     int Credits;
 };
 

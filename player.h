@@ -45,8 +45,8 @@ class player
     int DefenceS = 1;
     string OwnedWeapons[10];
     string OwnedItems[10];
-    string LeftHand;
-    string RightHand;
+    string Slot1;
+    string Slot2;
 };
 
 extern player Pone;

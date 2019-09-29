@@ -17,3 +17,26 @@
 // Copywright (C) 2018 - 2019
 // Author: Peter (apemax) Wright
 // CMDArena
+
+#include <iostream>
+using namespace std;
+
+#ifndef DEFEND_H
+#define DEFEND_H
+
+class defend
+{
+  public:
+    void Equip(string slot);
+    void Unequip(string Slot);
+    void AddToPlayer();
+    void RemoveFromPlayer();
+    string Name = "Defend";
+    int CDefendS;
+    int Price = 2;
+    int Value;
+};
+
+extern defend DefendCommand;
+
+#endif //DEFEND_H

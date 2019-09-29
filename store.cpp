@@ -22,6 +22,7 @@
 #include "player.h"
 #include "store.h"
 #include "attack.h"
+#include "defend.h"
 using namespace std;
 
 void store::StoreMain()
@@ -41,11 +42,11 @@ void store::StoreMain()
 
     getline(cin, SOpt);
 
-    if(SOpt == "buy weapons")
+    if(SOpt == "buy commands")
     {
       for(int n = 0; n < 10; n++)
       {
-        cout << WeaponsInStock[n] << " | ";
+        cout << CommandsInStock[n] << " | ";
       }
 
       cout << endl;
@@ -56,9 +57,9 @@ void store::StoreMain()
 
       getline(cin, SOpt);
 
-      if(SOpt == "Short Sword")
+      if(SOpt == "Attack")
       {
-        cout << "That will cost: " << SSword.Price << " Credits, Are you sure?" << endl;
+        cout << "That will cost: " << AttackCommand.Price << " Credits, Are you sure?" << endl;
 
         cout << ">";
 
@@ -66,11 +67,11 @@ void store::StoreMain()
 
         if(SOpt == "yes")
         {
-          Pone.Credits = Pone.Credits - SSword.Price;
+          Pone.Credits = Pone.Credits - AttackCommand.Price;
 
-          Mstore.Credits = Mstore.Credits + SSword.Price;
+          Mstore.Credits = Mstore.Credits + AttackCommand.Price;
 
-          SSword.AddToPlayer();
+          AttackCommand.AddToPlayer();
 
           cout << "Thank you." << endl;
         }

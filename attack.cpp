@@ -25,36 +25,32 @@ using namespace std;
 
 void attack::Equip(string Slot)
 {
-  if(Slot.substr(0, 4) == "Left")
+  if(Slot.substr(0, 4) == "1")
   {
-    Pone.LeftHand = Name;
+    Pone.Slot1 = Name;
   }
-  else if(Slot == "Right")
+  else if(Slot == "2")
   {
-    Pone.RightHand = Name;
+    Pone.Slot2 = Name;
   }
 
-  Pone.AttackS = Pone.AttackS + WAttackS;
-
-  Pone.DefenceS = Pone.DefenceS + WDefenceS;
+  Pone.AttackS = Pone.AttackS + CAttackS;
 
   cout << Name << " Equiped." << endl;
 }
 
 void attack::Unequip(string Slot)
 {
-  if(Slot.substr(0, 4) == "Left")
+  if(Slot.substr(0, 4) == "1")
   {
-    Pone.LeftHand.clear();
+    Pone.Slot1.clear();
   }
-  else if(Slot == "Right")
+  else if(Slot == "2")
   {
-    Pone.RightHand.clear();
+    Pone.Slot2.clear();
   }
 
-  Pone.AttackS = Pone.AttackS - WAttackS;
-
-  Pone.DefenceS = Pone.DefenceS - WDefenceS;
+  Pone.AttackS = Pone.AttackS - CAttackS;
 
   cout << Name << " Unequipped." << endl;
 }

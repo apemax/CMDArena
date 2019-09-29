@@ -22,6 +22,7 @@
 #include "player.h"
 #include "enemy.h"
 #include "attack.h"
+#include "defend.h"
 using namespace std;
 
 void player::HealthUp(int a)
@@ -76,7 +77,7 @@ void player::Inventory()
 
   while(running == true)
   {
-    cout << "1) View Stats. 2) Manage Weapons. 3) Manage Items. 4) Exit." << endl;
+    cout << "1) View Stats. 2) Manage Commands. 3) Manage Mods. 4) Exit." << endl;
 
     cout << ">";
 
@@ -88,7 +89,7 @@ void player::Inventory()
       {
         cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << " Credits: " << Credits << endl;
         cout << "Attack: " << AttackS << " Defence: " << DefenceS << endl;
-        cout << "Weapons equipped: Left hand: " << LeftHand << " Right hand: " << RightHand << endl;
+        cout << "Commands equipped: Slot 1: " << Slot1 << " Slot 2: " << Slot2 << endl;
 
         break;
       }
@@ -122,18 +123,18 @@ void player::Inventory()
           {
             //Equip waepons
 
-            if(WMOpt.substr(6, 11) == "Short Sword")
+            if(WMOpt.substr(6, 6) == "Attack")
             {
-              SSword.Equip(WMOpt.substr(18, 5));
+              AttackCommand.Equip(WMOpt.substr(11, 5));
             }
           }
           else if(WMOpt.substr(0, 7) == "Unequip")
           {
             //Unequip weapons.
 
-            if(WMOpt.substr(8, 11) == "Short Sword")
+            if(WMOpt.substr(8, 6) == "Attack")
             {
-              SSword.Unequip(WMOpt.substr(20, 5));
+              AttackCommand.Unequip(WMOpt.substr(13, 5));
             }
           }
           else if(WMOpt.substr(0, 4) == "Exit")
