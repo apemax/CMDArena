@@ -76,11 +76,30 @@ void store::StoreMain()
           cout << "Thank you." << endl;
         }
       }
+      else if( SOpt == "defend")
+      {
+        cout << "That will cost: " << DefendCommand.Price << " Credits, Are you sure?" << endl;
+
+        cout << ">";
+
+        getline(cin, SOpt);
+
+        if(SOpt == "yes")
+        {
+          Pone.Credits = Pone.Credits - DefendCommand.Price;
+
+          Mstore.Credits = Mstore.Credits + DefendCommand.Price;
+
+          DefendCommand.AddToPlayer();
+
+          cout << "Thank you." << endl;
+        }
+      }
     }
 
-    else if(SOpt == "sell weapons")
+    else if(SOpt == "sell commands")
     {
-      cout << "sell weapons." << endl;
+      cout << "sell commands." << endl;
     }
 
     else if(SOpt == "buy items")
