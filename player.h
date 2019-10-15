@@ -43,7 +43,8 @@ class player
     int AttackS = 2;
     int AttackTemp = 0;
     int DefenceS = 1;
-    string OwnedWeapons[10];
+    int OwnedCommandsCount = 0;
+    string OwnedCommands[10];
     string OwnedItems[10];
     string Slot1;
     string Slot2;

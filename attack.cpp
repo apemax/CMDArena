@@ -57,10 +57,14 @@ void attack::Unequip(string Slot)
 
 void attack::AddToPlayer()
 {
-  Pone.OwnedWeapons[0] = Name;
+  Pone.OwnedCommands[Pone.OwnedCommandsCount] = Name;
+
+  Pone.OwnedCommandsCount++;
 }
 
 void attack::RemoveFromPlayer()
 {
-  Pone.OwnedWeapons[0].clear();
+  Pone.OwnedCommands[Pone.OwnedCommandsCount].clear();
+
+  Pone.OwnedCommandsCount--;
 }

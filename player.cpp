@@ -112,9 +112,11 @@ void player::Inventory()
 
           if(WMOpt.substr(0, 4) == "List")
           {
-            for(int n = 0; n < 10; n++)
+            cout << "Number of owned commands: " << OwnedCommandsCount << endl;
+
+            for(int n = 0; n < OwnedCommandsCount; n++)
             {
-              cout << OwnedWeapons[n] << " | ";
+              cout << OwnedCommands[n] << " | ";
             }
 
             cout << endl;

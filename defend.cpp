@@ -57,10 +57,14 @@ void defend::Unequip(string Slot)
 
 void defend::AddToPlayer()
 {
-  Pone.OwnedWeapons[0] = Name;
+  Pone.OwnedCommands[Pone.OwnedCommandsCount] = Name;
+
+  Pone.OwnedCommandsCount++;
 }
 
 void defend::RemoveFromPlayer()
 {
-  Pone.OwnedWeapons[0].clear();
+  Pone.OwnedCommands[Pone.OwnedCommandsCount].clear();
+
+  Pone.OwnedCommandsCount++;
 }
