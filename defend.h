@@ -27,6 +27,7 @@ using namespace std;
 class defend
 {
   public:
+    void Execute(int state);
     void Equip(string slot);
     void Unequip(string Slot);
     void AddToPlayer();

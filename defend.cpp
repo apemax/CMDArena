@@ -20,16 +20,43 @@
 
 #include "global.h"
 #include "player.h"
+#include "enemy.h"
 #include "defend.h"
 using namespace std;
 
+void defend::Execute(int state)
+{
+  switch(state)
+  {
+    case 1:
+    {
+      //Take DefenceS away from AttackS
+
+      Eone.AttackTemp = Eone.AttackS;
+
+      Eone.AttackS = Eone.AttackS - Pone.DefenceS;
+
+      break;
+    }
+
+    case 2:
+    {
+      //Restore original value of AttackS
+
+      Eone.AttackS = Eone.AttackTemp;
+
+      break;
+    }
+  }
+}
+
 void defend::Equip(string Slot)
 {
-  if(Slot.substr(0, 4) == "1")
+  if(Slot.substr(7, 1) == "1")
   {
     Pone.Slot1 = Name;
   }
-  else if(Slot == "2")
+  else if(Slot.substr(7, 1) == "2")
   {
     Pone.Slot2 = Name;
   }
@@ -41,11 +68,11 @@ void defend::Equip(string Slot)
 
 void defend::Unequip(string Slot)
 {
-  if(Slot.substr(0, 4) == "1")
+  if(Slot.substr(7, 1) == "1")
   {
     Pone.Slot1.clear();
   }
-  else if(Slot == "2")
+  else if(Slot.substr(7, 1) == "2")
   {
     Pone.Slot2.clear();
   }

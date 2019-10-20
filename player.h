@@ -30,8 +30,7 @@ class player
   public:
     void HealthUp(int a);
     void HealthDown(int b);
-    void Attack();
-    void Defence(int state);
+    void ExecuteCommand(string CommandName);
     void Inventory();
     void LvlUp();
     bool PDeath = false;
@@ -43,6 +42,7 @@ class player
     int AttackS = 2;
     int AttackTemp = 0;
     int DefenceS = 1;
+    int PDef = 1;
     int OwnedCommandsCount = 0;
     string OwnedCommands[10];
     string OwnedItems[10];

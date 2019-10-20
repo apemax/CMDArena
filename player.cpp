@@ -35,38 +35,17 @@ void player::HealthDown(int b)
   Health = Health - b;
 }
 
-void player::Attack()
+void player::ExecuteCommand(string CommandName)
 {
-  //Attack.
-
-  Eone.HealthDown(Pone.AttackS);
-}
-
-void player::Defence(int state)
-{
-  //Defend.
-
-  switch(state)
+  if(CommandName == "attack")
   {
-    case 1:
-    {
-      //Take DefenceS away from AttackS
 
-      Eone.AttackTemp = Eone.AttackS;
-
-      Eone.AttackS = Eone.AttackS - Pone.DefenceS;
-
-      break;
-    }
-
-    case 2:
-    {
-      //Restore original value of AttackS
-
-      Eone.AttackS = Eone.AttackTemp;
-
-      break;
-    }
+    cout << CommandName << endl;
+    AttackCommand.Execute();
+  }
+  else if(CommandName == "defend")
+  {
+    DefendCommand.Execute(Pone.PDef);
   }
 }
 
@@ -127,7 +106,11 @@ void player::Inventory()
 
             if(WMOpt.substr(6, 6) == "Attack")
             {
-              AttackCommand.Equip(WMOpt.substr(11, 5));
+              AttackCommand.Equip(WMOpt.substr(6, 8));
+            }
+            else if(WMOpt.substr(6, 6) == "Defend")
+            {
+              DefendCommand.Equip(WMOpt.substr(6, 8));
             }
           }
           else if(WMOpt.substr(0, 7) == "Unequip")
@@ -136,7 +119,11 @@ void player::Inventory()
 
             if(WMOpt.substr(8, 6) == "Attack")
             {
-              AttackCommand.Unequip(WMOpt.substr(13, 5));
+              AttackCommand.Unequip(WMOpt.substr(8, 6));
+            }
+            else if(WMOpt.substr(8, 6) == "Defend")
+            {
+              DefendCommand.Unequip(WMOpt.substr(8, 6));
             }
           }
           else if(WMOpt.substr(0, 4) == "Exit")

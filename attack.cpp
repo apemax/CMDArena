@@ -20,16 +20,22 @@
 
 #include "global.h"
 #include "player.h"
+#include "enemy.h"
 #include "attack.h"
 using namespace std;
 
+void attack::Execute()
+{
+  Eone.HealthDown(Pone.AttackS);
+}
+
 void attack::Equip(string Slot)
 {
-  if(Slot.substr(0, 4) == "1")
+  if(Slot.substr(7, 1) == "1")
   {
     Pone.Slot1 = Name;
   }
-  else if(Slot == "2")
+  else if(Slot.substr(7, 1) == "2")
   {
     Pone.Slot2 = Name;
   }
@@ -41,11 +47,11 @@ void attack::Equip(string Slot)
 
 void attack::Unequip(string Slot)
 {
-  if(Slot.substr(0, 4) == "1")
+  if(Slot.substr(7, 1) == "1")
   {
     Pone.Slot1.clear();
   }
-  else if(Slot == "2")
+  else if(Slot.substr(7, 1) == "2")
   {
     Pone.Slot2.clear();
   }

@@ -27,6 +27,7 @@ using namespace std;
 class attack
 {
   public:
+    void Execute();
     void Equip(string slot);
     void Unequip(string Slot);
     void AddToPlayer();

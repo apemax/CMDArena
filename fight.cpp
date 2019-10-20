@@ -21,22 +21,25 @@
 #include "global.h"
 #include "player.h"
 #include "enemy.h"
+#include "attack.h"
+#include "defend.h"
 using namespace std;
 
 void Fight()
 {
-  int Opt1;
-  int PDef = 0;
+  string Opt1;
   int EDef = 0;
   bool running = true;
 
+  cin.ignore();
+
   while (running == true)
   {
-    if(PDef == 1)
+    if(Pone.PDef == 2)
     {
-      Pone.Defence(2);
+      DefendCommand.Execute(Pone.PDef);
 
-      PDef = PDef - 1;
+      Pone.PDef = Pone.PDef - 1;
     }
 
     cout << "1) Attack. 2) Defend. 3) Surrender." << endl;
@@ -45,36 +48,22 @@ void Fight()
 
     cout << ">";
 
-    cin >> Opt1;
+    getline(cin, Opt1);
 
-    switch(Opt1)
+    if(Opt1.substr(0, 6) == "attack")
     {
-      case 1:
-      {
-        //Attack
+      cout << Opt1 << endl;
+      Pone.ExecuteCommand(Opt1.substr(0, 6));
+    }
+    else if(Opt1.substr(0, 6) == "defend")
+    {
+      Pone.ExecuteCommand(Opt1.substr(0, 6));
 
-        Pone.Attack();
-
-        break;
-      }
-
-      case 2:
-      {
-        //defend
-
-        Pone.Defence(1);
-
-        PDef = PDef + 1;
-
-        break;
-      }
-
-      case 3:
-      {
-        running = false;
-
-        break;
-      }
+      Pone.PDef = Pone.PDef + 1;
+    }
+    else if(Opt1.substr(0, 9) == "surrender")
+    {
+      running = false;
     }
 
     //ai actions
