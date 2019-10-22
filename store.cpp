@@ -30,6 +30,8 @@ void store::StoreMain()
   string SOpt;
   bool runningS = true;
 
+  setup();
+
   cout << "Welcome to the store." << endl;
 
   cin.ignore();
@@ -76,7 +78,7 @@ void store::StoreMain()
           cout << "Thank you." << endl;
         }
       }
-      else if( SOpt == "defend")
+      else if(SOpt == "Defend")
       {
         cout << "That will cost: " << DefendCommand.Price << " Credits, Are you sure?" << endl;
 
@@ -102,18 +104,24 @@ void store::StoreMain()
       cout << "sell commands." << endl;
     }
 
-    else if(SOpt == "buy items")
+    else if(SOpt == "buy Mods")
     {
-      cout << "buy items." << endl;
+      cout << "buy Mods." << endl;
     }
 
-    else if(SOpt == "sell items")
+    else if(SOpt == "sell Mods")
     {
-      cout << "sell items." << endl;
+      cout << "sell Mods." << endl;
     }
     else if(SOpt == "exit")
     {
       runningS = false;
     }
   }
+}
+
+void store::setup()
+{
+  CommandsInStock[0] = AttackCommand.Name;
+  CommandsInStock[1] = DefendCommand.Name;
 }

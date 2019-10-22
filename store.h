@@ -29,6 +29,7 @@ class store
 {
   public:
     void StoreMain();
+    void setup();
     string CommandsInStock[10];
     int Credits;
 };
