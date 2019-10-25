@@ -46,6 +46,8 @@ void player::ExecuteCommand(string CommandName)
   else if(CommandName == "defend")
   {
     DefendCommand.Execute(Pone.PDef);
+
+    Pone.PDef = Pone.PDef + 1;
   }
 }
 

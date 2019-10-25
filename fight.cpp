@@ -50,18 +50,9 @@ void Fight()
 
     getline(cin, Opt1);
 
-    if(Opt1.substr(0, 6) == "attack")
-    {
-      cout << Opt1 << endl;
-      Pone.ExecuteCommand(Opt1.substr(0, 6));
-    }
-    else if(Opt1.substr(0, 6) == "defend")
-    {
-      Pone.ExecuteCommand(Opt1.substr(0, 6));
+    Pone.ExecuteCommand(Opt1);
 
-      Pone.PDef = Pone.PDef + 1;
-    }
-    else if(Opt1.substr(0, 9) == "surrender")
+    if(Opt1.substr(0, 9) == "surrender")
     {
       running = false;
     }
