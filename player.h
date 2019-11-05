@@ -45,7 +45,7 @@ class player
     int PDef = 1;
     int OwnedCommandsCount = 0;
     string OwnedCommands[10];
-    string OwnedItems[10];
+    string OwnedMods[10];
     string Slot1;
     string Slot2;
 };

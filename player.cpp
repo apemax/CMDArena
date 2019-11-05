@@ -39,8 +39,6 @@ void player::ExecuteCommand(string CommandName)
 {
   if(CommandName == "attack")
   {
-
-    cout << CommandName << endl;
     AttackCommand.Execute();
   }
   else if(CommandName == "defend")
@@ -83,7 +81,7 @@ void player::Inventory()
 
         while(runningWM == true)
         {
-          cout << "1) List. 2) Equip. 3) Unequip. 4) Exit." << endl;
+          cout << "List. Equip <Command name> <Slot number>. Unequip <Command name> <Slot number>. Exit." << endl;
 
           cout << ">";
 
@@ -158,7 +156,7 @@ void player::Inventory()
             {
               for(int n = 0; n < 10; n++)
               {
-                cout << OwnedItems[n] << " | ";
+                cout << OwnedMods[n] << " | ";
               }
 
               cout << endl;
