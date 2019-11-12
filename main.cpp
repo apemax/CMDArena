@@ -21,6 +21,8 @@
 #include "global.h"
 #include "player.h"
 #include "enemy.h"
+#include "attack.h"
+#include "defend.h"
 using namespace std;
 
 //player Pone;
@@ -70,7 +72,60 @@ int main()
       {
         // Options
 
-        cout << "Options." << endl;
+        int Opt2;
+        bool runningOpt = true;
+
+        while (runningOpt == true)
+        {
+          cout << "1) Debug options. 2) Exit." << endl;
+
+          cin >> Opt2;
+
+          switch (Opt2)
+          {
+            case 1:
+            {
+              //Debug options.
+
+              int Opt3;
+              bool runningDebug = true;
+
+              while (runningDebug == true)
+              {
+                cout << "1) Add all commands to player. 2) Exit." << endl;
+
+                cin >> Opt3;
+
+                switch (Opt3)
+                {
+                  case 1:
+                  {
+                    AttackCommand.AddToPlayer();
+                    DefendCommand.AddToPlayer();
+
+                    cout << AttackCommand.Name << ", " << DefendCommand.Name << ", Commands added to player." << endl;
+
+                    break;
+                  }
+                  case 2:
+                  {
+                    runningDebug = false;
+
+                    break;
+                  }
+                }
+              }
+
+              break;
+            }
+            case 2:
+            {
+              runningOpt = false;
+
+              break;
+            }
+          }
+        }
 
         break;
       }
