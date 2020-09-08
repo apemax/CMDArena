@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2020
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -31,13 +31,17 @@ class enemy
     void Setup(int preset);
     void HealthUp(int a);
     void HealthDown(int b);
-    void Attack();
-    void Defence(int state);
+    void ExecuteCommand(string CommandName);
     string Name;
     int Health;
     int AttackS;
     int AttackTemp;
     int DefenceS;
+    int EDef = 0;
+    int OwnedCommandsCount = 0;
+    string OwnedCommands[10];
+    string Slot1;
+    string Slot2;
 };
 
 extern enemy Eone;

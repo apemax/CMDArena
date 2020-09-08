@@ -14,13 +14,15 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2020
 // Author: Peter (apemax) Wright
 // CMDArena
 
 #include "global.h"
 #include "player.h"
 #include "enemy.h"
+#include "attack.h"
+#include "defend.h"
 using namespace std;
 
 void enemy::Setup(int preset)
@@ -42,7 +44,7 @@ void enemy::Setup(int preset)
       {
         if(stoi(PresetLine.substr(7)) == preset)
         {
-          for (; i < 4; i++)
+          for (; i < 6; i++)
           {
             getline(PresetFile, PresetLine);
 
@@ -72,13 +74,29 @@ void enemy::Setup(int preset)
 
                 break;
               }
+              case 5:
+              {
+                Eone.Slot1 = stoi(PresetLine.substr(6, 12));
+                Eone.OwnedCommands[1] = stoi(PresetLine.substr(6, 12));
+                Eone.OwnedCommandsCount++;
+
+                break;
+              }
+              case 6:
+              {
+                Eone.Slot2 = stoi(PresetLine.substr(6, 12));
+                Eone.OwnedCommands[2] = stoi(PresetLine.substr(6, 12));
+                Eone.OwnedCommandsCount++;
+
+                break;
+              }
             }
           }
           runningP = false;
         }
       }
     }
-    
+
   PresetFile.close();
   }
   else
@@ -97,37 +115,16 @@ void enemy::HealthDown(int b)
   Health = Health - b;
 }
 
-void enemy::Attack()
+void enemy::ExecuteCommand(string CommandName)
 {
-  //Attack.
-
-  Pone.HealthDown(Eone.AttackS);
-}
-
-void enemy::Defence(int state)
-{
-  //Defend.
-
-  switch(state)
+  if(CommandName == "attack")
   {
-    case 1:
-    {
-      //Take DefenceS away from AttackS
+    AttackCommand.Execute();
+  }
+  else if(CommandName == "defend")
+  {
+    DefendCommand.Execute(Eone.EDef);
 
-      Pone.AttackTemp = Pone.AttackS;
-
-      Pone.AttackS = Pone.AttackS - Eone.DefenceS;
-
-      break;
-    }
-
-    case 2:
-    {
-      //Restore original value of AttackS
-
-      Pone.AttackS = Pone.AttackTemp;
-
-      break;
-    }
+    Eone.EDef = Eone.EDef + 1;
   }
 }

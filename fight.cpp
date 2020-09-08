@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2020
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -28,7 +28,7 @@ using namespace std;
 void Fight()
 {
   string Opt1;
-  int EDef = 0;
+  //int EDef = 0;
   bool running = true;
 
   cin.ignore();
@@ -59,24 +59,24 @@ void Fight()
 
     //ai actions
 
-    if(EDef == 1)
+    if(Eone.EDef == 1)
     {
-      Eone.Defence(2);
+      Eone.ExecuteCommand("defend");
 
-      EDef = EDef - 1;
+      Eone.EDef = Eone.EDef - 1;
     }
 
     if(Eone.Health > 4)
     {
-      Eone.Attack();
+      Eone.ExecuteCommand("attack");
     }
     else if(Eone.Health <= 4)
     {
       //Defend.
 
-      Eone.Defence(1);
+      Eone.ExecuteCommand("defend");
 
-      EDef = EDef + 1;
+      Eone.EDef = Eone.EDef + 1;
     }
 
     if(Pone.Health <= 0)
