@@ -1,0 +1,11 @@
+command=1
+name=Attack
+cattacks=2
+price=2
+value=2
+command=2
+name=Defend
+cdefends=2
+price=2
+value=2
+EOF

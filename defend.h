@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2020
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -24,20 +24,21 @@ using namespace std;
 #ifndef DEFEND_H
 #define DEFEND_H
 
-class defend
+class Defend
 {
   public:
+    Defend (int);
     void Execute(int state);
     void Equip(string slot);
     void Unequip(string Slot);
     void AddToPlayer();
     void RemoveFromPlayer();
-    string Name = "Defend";
+    string Name;
     int CDefendS;
-    int Price = 2;
+    int Price;
     int Value;
 };
 
-extern defend DefendCommand;
+extern Defend DefendCommand;
 
 #endif //DEFEND_H

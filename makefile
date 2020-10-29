@@ -20,6 +20,7 @@ $(BUILD_DIR)/CMDArena: $(OBJ) | $$(@D)
 
 $(BUILD_DIR):
 	mkdir -p $@
+	cp commands enemy-presets build
 
 $(ODIR):
 	mkdir -p $@

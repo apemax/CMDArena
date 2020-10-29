@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2020
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -24,7 +24,77 @@
 #include "defend.h"
 using namespace std;
 
-void defend::Execute(int state)
+Defend::Defend (int c)
+{
+  string FileName = "commands";
+  string FileLine;
+  int i = 1;
+  bool runningP = true;
+
+  ifstream CommandsFile(FileName, ios::in);
+
+  if(CommandsFile.is_open())
+  {
+    while(runningP == true)
+    {
+      getline(CommandsFile, FileLine);
+
+      if(FileLine.substr(0, 7) == "command")
+      {
+        if(stoi(FileLine.substr(8)) == c)
+        {
+          for (; i < 5; i++)
+          {
+            getline(CommandsFile, FileLine);
+
+            switch(i)
+            {
+              case 1:
+              {
+                DefendCommand.Name = FileLine.substr(5, 6);
+
+                break;
+              }
+              case 2:
+              {
+                DefendCommand.CDefendS = stoi(FileLine.substr(9, 1));
+
+                break;
+              }
+              case 3:
+              {
+                DefendCommand.Price = stoi(FileLine.substr(6, 1));
+
+                break;
+              }
+              case 4:
+              {
+                DefendCommand.Value = stoi(FileLine.substr(6, 1));
+
+                break;
+              }
+            }
+          }
+          runningP = false;
+        }
+      }
+      else if(FileLine.substr(0, 3) == "EOF")
+      {
+        cout << "End of commands file reached." << endl;
+
+        runningP = false;
+      }
+    }
+
+  CommandsFile.close();
+  }
+  else
+  {
+    cout << "Error: Unable to open file." << endl;
+  }
+}
+
+void Defend::Execute(int state)
 {
   switch(state)
   {
@@ -50,7 +120,7 @@ void defend::Execute(int state)
   }
 }
 
-void defend::Equip(string Slot)
+void Defend::Equip(string Slot)
 {
   if(Slot.substr(7, 1) == "1")
   {
@@ -66,7 +136,7 @@ void defend::Equip(string Slot)
   cout << Name << " Equiped." << endl;
 }
 
-void defend::Unequip(string Slot)
+void Defend::Unequip(string Slot)
 {
   if(Slot.substr(7, 1) == "1")
   {
@@ -82,14 +152,14 @@ void defend::Unequip(string Slot)
   cout << Name << " Unequipped." << endl;
 }
 
-void defend::AddToPlayer()
+void Defend::AddToPlayer()
 {
   Pone.OwnedCommands[Pone.OwnedCommandsCount] = Name;
 
   Pone.OwnedCommandsCount++;
 }
 
-void defend::RemoveFromPlayer()
+void Defend::RemoveFromPlayer()
 {
   Pone.OwnedCommands[Pone.OwnedCommandsCount].clear();
 

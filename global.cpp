@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2020
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -29,5 +29,5 @@ player Pone;
 enemy Eone;
 store Mstore;
 
-attack AttackCommand;
-defend DefendCommand;
+Attack AttackCommand (1);
+Defend DefendCommand (2);

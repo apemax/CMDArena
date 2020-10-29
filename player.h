@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2020
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -44,6 +44,7 @@ class player
     int DefenceS = 1;
     int PDef = 1;
     int OwnedCommandsCount = 0;
+    int OwnedModsCount = 0;
     string OwnedCommands[10];
     string OwnedMods[10];
     string Slot1;

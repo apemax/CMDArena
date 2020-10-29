@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2020
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -24,12 +24,83 @@
 #include "attack.h"
 using namespace std;
 
-void attack::Execute()
+Attack::Attack (int c)
+{
+  string FileName = "commands";
+  string FileLine;
+  int i = 1;
+  bool runningP = true;
+
+  ifstream CommandsFile(FileName, ios::in);
+
+  if(CommandsFile.is_open())
+  {
+    while(runningP == true)
+    {
+      getline(CommandsFile, FileLine);
+
+      if(FileLine.substr(0, 7) == "command")
+      {
+        if(stoi(FileLine.substr(8)) == c)
+        {
+          for (; i < 5; i++)
+          {
+            getline(CommandsFile, FileLine);
+
+            switch(i)
+            {
+              case 1:
+              {
+                AttackCommand.Name = FileLine.substr(5, 6);
+
+                break;
+              }
+              case 2:
+              {
+                AttackCommand.CAttackS = stoi(FileLine.substr(9, 1));
+
+                break;
+              }
+              case 3:
+              {
+                AttackCommand.Price = stoi(FileLine.substr(6, 1));
+
+                break;
+              }
+              case 4:
+              {
+                AttackCommand.Value = stoi(FileLine.substr(6, 1));
+
+                break;
+              }
+            }
+          }
+          runningP = false;
+        }
+      }
+      else if(FileLine.substr(0, 3) == "EOF")
+      {
+        cout << "End of commands file reached." << endl;
+
+        runningP = false;
+      }
+    }
+
+  CommandsFile.close();
+  }
+  else
+  {
+    cout << "Error: Unable to open file." << endl;
+  }
+}
+
+
+void Attack::Execute()
 {
   Eone.HealthDown(Pone.AttackS);
 }
 
-void attack::Equip(string Slot)
+void Attack::Equip(string Slot)
 {
   if(Slot.substr(7, 1) == "1")
   {
@@ -45,7 +116,7 @@ void attack::Equip(string Slot)
   cout << Name << " Equiped." << endl;
 }
 
-void attack::Unequip(string Slot)
+void Attack::Unequip(string Slot)
 {
   if(Slot.substr(7, 1) == "1")
   {
@@ -61,14 +132,14 @@ void attack::Unequip(string Slot)
   cout << Name << " Unequipped." << endl;
 }
 
-void attack::AddToPlayer()
+void Attack::AddToPlayer()
 {
   Pone.OwnedCommands[Pone.OwnedCommandsCount] = Name;
 
   Pone.OwnedCommandsCount++;
 }
 
-void attack::RemoveFromPlayer()
+void Attack::RemoveFromPlayer()
 {
   Pone.OwnedCommands[Pone.OwnedCommandsCount].clear();
 

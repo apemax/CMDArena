@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2020
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -24,20 +24,21 @@ using namespace std;
 #ifndef ATTACK_H
 #define ATTACK_H
 
-class attack
+class Attack
 {
   public:
+    Attack (int);
     void Execute();
     void Equip(string slot);
     void Unequip(string Slot);
     void AddToPlayer();
     void RemoveFromPlayer();
-    string Name = "Attack";
+    string Name;
     int CAttackS;
-    int Price = 2;
+    int Price;
     int Value;
 };
 
-extern attack AttackCommand;
+extern Attack AttackCommand;
 
 #endif //ATTACK_H
