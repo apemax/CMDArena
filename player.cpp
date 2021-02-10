@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2021
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -23,6 +23,8 @@
 #include "enemy.h"
 #include "attack.h"
 #include "defend.h"
+#include "mattackup.h"
+#include "mdefenceup.h"
 using namespace std;
 
 void player::HealthUp(int a)
@@ -137,50 +139,85 @@ void player::Inventory()
       }
       case 3:
       {
-        bool runningIM = true;
-        int IMOpt;
+        bool runningMM = true;
+        string MMOpt;
 
-        while(runningIM == true)
+        cin.ignore();
+
+        while(runningMM == true)
         {
-          cout << "1) List. 2) Use. 3) Equip. 4) Unequip. 5) exit." << endl;
+          cout << "List. Install <Mod name> <Command name> <Slot number>. Uninstall <Mod name> <Command name> <Slot number>. Exit." << endl;
 
           cout << ">";
 
-          cin >> IMOpt;
+          getline(cin, MMOpt);
 
           cout << endl;
 
-          switch(IMOpt)
+          if(MMOpt.substr(0, 4) == "List")
           {
-            case 1:
+            cout << "Number of owned Mods: " << OwnedModsCount << endl;
+
+            for(int n = 0; n < OwnedModsCount; n++)
             {
-              for(int n = 0; n < 10; n++)
+              cout << OwnedMods[n] << " | ";
+            }
+
+            cout << endl;
+          }
+          else if(MMOpt.substr(0, 7) == "Install")
+          {
+            if(MMOpt.substr(8, 9) == "Attack Up")
+            {
+              cout << "<Command name> <Slot number>" << endl;
+
+              getline(cin, MMOpt);
+
+              if (MMOpt.substr(0, 6) == "Attack")
               {
-                cout << OwnedMods[n] << " | ";
+                AttackUpMod.AddToCommand(MMOpt.substr(7, 1));
               }
+            }
+            else if(MMOpt.substr(8, 10) == "Defence Up")
+            {
+              cout << "<Command name> <Slot number>" << endl;
 
-              cout << endl;
+              getline(cin, MMOpt);
 
-              break;
+              if (MMOpt.substr(0, 6) == "Defend")
+              {
+                DefenceUpMod.AddToCommand(MMOpt.substr(7, 1));
+              }
             }
-            case 2:
+          }
+          else if(MMOpt.substr(0, 9) == "Uninstall")
+          {
+            if(MMOpt.substr(8, 9) == "Attack Up")
             {
-              break;
-            }
-            case 3:
-            {
-              break;
-            }
-            case 4:
-            {
-              break;
-            }
-            case 5:
-            {
-              runningIM = false;
+              cout << "<Command name> <Slot number>" << endl;
 
-              break;
+              getline(cin, MMOpt);
+
+              if (MMOpt.substr(0, 6) == "Attack")
+              {
+                AttackUpMod.RemoveFromCommand(MMOpt.substr(7, 1));
+              }
             }
+            else if(MMOpt.substr(6, 6) == "Defence Up")
+            {
+              cout << "<Command name> <Slot number>" << endl;
+
+              getline(cin, MMOpt);
+
+              if (MMOpt.substr(0, 6) == "Defend")
+              {
+                DefenceUpMod.RemoveFromCommand(MMOpt.substr(7, 1));
+              }
+            }
+          }
+          else if(MMOpt.substr(0, 4) == "Exit")
+          {
+            runningMM = false;
           }
         }
 

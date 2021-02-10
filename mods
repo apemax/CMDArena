@@ -1,0 +1,13 @@
+mod=1
+name=Attack Up
+id=1
+price=2
+value=2
+mattackups=2
+mod=2
+name=Defence Up
+id=2
+price=2
+value=2
+mdefenceups=2
+EOF

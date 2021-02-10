@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2021
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -23,6 +23,8 @@
 #include "enemy.h"
 #include "attack.h"
 #include "defend.h"
+#include "mattackup.h"
+#include "mdefenceup.h"
 using namespace std;
 
 //player Pone;
@@ -92,7 +94,7 @@ int main()
 
               while (runningDebug == true)
               {
-                cout << "1) Add all commands to player. 2) Exit." << endl;
+                cout << "1) Add all commands and mods to player. 2) Exit." << endl;
 
                 cin >> Opt3;
 
@@ -102,8 +104,11 @@ int main()
                   {
                     AttackCommand.AddToPlayer();
                     DefendCommand.AddToPlayer();
+                    AttackUpMod.AddToPlayer();
+                    DefenceUpMod.AddToPlayer();
 
                     cout << AttackCommand.Name << ", " << DefendCommand.Name << ", Commands added to player." << endl;
+                    cout << AttackUpMod.Name << ", " << DefenceUpMod.Name << ", Mods added to player." << endl;
 
                     break;
                   }

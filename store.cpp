@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2021
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -23,6 +23,8 @@
 #include "store.h"
 #include "attack.h"
 #include "defend.h"
+#include "mattackup.h"
+#include "mdefenceup.h"
 using namespace std;
 
 void store::StoreMain()
@@ -106,7 +108,57 @@ void store::StoreMain()
 
     else if(SOpt == "buy Mods")
     {
-      cout << "buy Mods." << endl;
+      for(int n = 0; n < 10; n++)
+      {
+        cout << ModsInStock[n] << " | ";
+      }
+
+      cout << endl;
+
+      cout << "Which do you want to buy?" << endl;
+
+      cout << ">";
+
+      getline(cin, SOpt);
+
+      if(SOpt == "Attack Up")
+      {
+        cout << "That will cost: " << AttackUpMod.Price << " Credits, Are you sure?" << endl;
+
+        cout << ">";
+
+        getline(cin, SOpt);
+
+        if(SOpt == "yes")
+        {
+          Pone.Credits = Pone.Credits - AttackUpMod.Price;
+
+          Mstore.Credits = Mstore.Credits + AttackUpMod.Price;
+
+          AttackUpMod.AddToPlayer();
+
+          cout << "Thank you." << endl;
+        }
+      }
+      else if(SOpt == "Defence Up")
+      {
+        cout << "That will cost: " << DefenceUpMod.Price << " Credits, Are you sure?" << endl;
+
+        cout << ">";
+
+        getline(cin, SOpt);
+
+        if(SOpt == "yes")
+        {
+          Pone.Credits = Pone.Credits - DefenceUpMod.Price;
+
+          Mstore.Credits = Mstore.Credits + DefenceUpMod.Price;
+
+          DefenceUpMod.AddToPlayer();
+
+          cout << "Thank you." << endl;
+        }
+      }
     }
 
     else if(SOpt == "sell Mods")
@@ -124,4 +176,7 @@ void store::setup()
 {
   CommandsInStock[0] = AttackCommand.Name;
   CommandsInStock[1] = DefendCommand.Name;
+
+  ModsInStock[0] = AttackUpMod.Name;
+  ModsInStock[1] = DefenceUpMod.Name;
 }

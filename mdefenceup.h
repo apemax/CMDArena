@@ -21,25 +21,24 @@
 #include <iostream>
 using namespace std;
 
-#ifndef ATTACK_H
-#define ATTACK_H
+#ifndef MDEFENCEUP_H
+#define MDEFENCEUP_H
 
-class Attack
+class MDefenceUp
 {
   public:
-    Attack (int);
-    void Execute();
-    void Equip(string slot);
-    void Unequip(string Slot);
+    MDefenceUp (int);
+    void AddToCommand(string Slot);
+    void RemoveFromCommand(string Slot);
     void AddToPlayer();
     void RemoveFromPlayer();
     string Name;
-    int CAttackS;
+    int Id;
     int Price;
     int Value;
-    int ModSlot1, ModSlot2;
+    int MDefenceUpS;
 };
 
-extern Attack AttackCommand;
+extern MDefenceUp DefenceUpMod;
 
-#endif //ATTACK_H
+#endif //MDEFENCEUP_H

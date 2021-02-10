@@ -1,13 +1,13 @@
 CC = g++
-CXXFLAGS = -no-pie -Werror -Wall -Wextra
-DEPS = global.h enemy.h player.h store.h attack.h defend.h
+CXXFLAGS = -no-pie -Werror -Wall -Wextra -g
+DEPS = global.h enemy.h player.h store.h attack.h defend.h mattackup.h mdefenceup.h
 
 ODIR = obj
 BUILD_DIR = build
 
 BIN = CMDArena
 
-_OBJ = main.o global.o arena.o player.o enemy.o store.o attack.o defend.o fight.o save.o load.o
+_OBJ = main.o global.o arena.o player.o enemy.o store.o attack.o defend.o fight.o save.o load.o mattackup.o mdefenceup.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 .SECONDEXPANSION:

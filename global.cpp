@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2020
+// Copywright (C) 2018 - 2021
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -23,6 +23,8 @@
 #include "store.h"
 #include "attack.h"
 #include "defend.h"
+#include "mattackup.h"
+#include "mdefenceup.h"
 using namespace std;
 
 player Pone;
@@ -31,3 +33,6 @@ store Mstore;
 
 Attack AttackCommand (1);
 Defend DefendCommand (2);
+
+MAttackUp AttackUpMod (1);
+MDefenceUp DefenceUpMod (2);

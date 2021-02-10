@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2020
+// Copywright (C) 2018 - 2021
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -37,6 +37,7 @@ class Defend
     int CDefendS;
     int Price;
     int Value;
+    int ModSlot1, ModSlot2;
 };
 
 extern Defend DefendCommand;

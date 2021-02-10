@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2019
+// Copywright (C) 2018 - 2021
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -31,6 +31,7 @@ class store
     void StoreMain();
     void setup();
     string CommandsInStock[10];
+    string ModsInStock[10];
     int Credits;
 };
 
