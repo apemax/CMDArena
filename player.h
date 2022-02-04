@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2020
+// Copyright (C) 2018 - 2022
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -45,6 +45,10 @@ class player
     int PDef = 1;
     int OwnedCommandsCount = 0;
     int OwnedModsCount = 0;
+    int TotalRAM = 16;
+    int TotalRAMFree = 16;
+    int TotalRAMUsed = 0;
+    int TotalCInstallSpace = 32;
     string OwnedCommands[10];
     string OwnedMods[10];
     string Slot1;

@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2021
+// Copyright (C) 2018 - 2022
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -41,7 +41,14 @@ void player::ExecuteCommand(string CommandName)
 {
   if(CommandName == "attack")
   {
-    AttackCommand.Execute();
+    if(AttackCommand.RAMUsage <= TotalRAMFree)
+    {
+      AttackCommand.Execute();
+    }
+    else
+    {
+      cout << "Not enough free RAM to run that command." << endl;
+    }
   }
   else if(CommandName == "defend")
   {
@@ -69,7 +76,7 @@ void player::Inventory()
       case 1:
       {
         cout << "Health: " << Health << " Level: " << Lvl << " Exp: " << Exp << " Credits: " << Credits << endl;
-        cout << "Attack: " << AttackS << " Defence: " << DefenceS << endl;
+        cout << "RAM: " << TotalRAMUsed << "/" << TotalRAM << " Attack: " << AttackS << " Defence: " << DefenceS << endl;
         cout << "Commands equipped: Slot 1: " << Slot1 << " Slot 2: " << Slot2 << endl;
 
         break;
@@ -83,7 +90,7 @@ void player::Inventory()
 
         while(runningWM == true)
         {
-          cout << "List. Equip <Command name> <Slot number>. Unequip <Command name> <Slot number>. Exit." << endl;
+          cout << "List. Install <Command name> <Slot number>. Uninstall <Command name> <Slot number>. Exit." << endl;
 
           cout << ">";
 
@@ -102,28 +109,28 @@ void player::Inventory()
 
             cout << endl;
           }
-          else if(WMOpt.substr(0, 5) == "Equip")
+          else if(WMOpt.substr(0, 7) == "Install")
           {
             //Equip waepons
 
-            if(WMOpt.substr(6, 6) == "Attack")
+            if(WMOpt.substr(8, 6) == "Attack")
             {
               AttackCommand.Equip(WMOpt.substr(6, 8));
             }
-            else if(WMOpt.substr(6, 6) == "Defend")
+            else if(WMOpt.substr(8, 6) == "Defend")
             {
               DefendCommand.Equip(WMOpt.substr(6, 8));
             }
           }
-          else if(WMOpt.substr(0, 7) == "Unequip")
+          else if(WMOpt.substr(0, 9) == "Uninstall")
           {
             //Unequip weapons.
 
-            if(WMOpt.substr(8, 6) == "Attack")
+            if(WMOpt.substr(10, 6) == "Attack")
             {
               AttackCommand.Unequip(WMOpt.substr(8, 6));
             }
-            else if(WMOpt.substr(8, 6) == "Defend")
+            else if(WMOpt.substr(10, 6) == "Defend")
             {
               DefendCommand.Unequip(WMOpt.substr(8, 6));
             }

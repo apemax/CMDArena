@@ -1,5 +1,5 @@
 CC = g++
-CXXFLAGS = -no-pie -Werror -Wall -Wextra -g
+CXXFLAGS = -no-pie -Werror -Wall -Wextra -g -lstdc++
 DEPS = global.h enemy.h player.h store.h attack.h defend.h mattackup.h mdefenceup.h
 
 ODIR = obj

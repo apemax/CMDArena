@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with STE.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copywright (C) 2018 - 2021
+// Copyright (C) 2018 - 2022
 // Author: Peter (apemax) Wright
 // CMDArena
 
@@ -37,6 +37,8 @@ class Attack
     int CAttackS;
     int Price;
     int Value;
+    int RAMUsage = 4;
+    int Size = 4;
     int ModSlot1, ModSlot2;
 };
 
